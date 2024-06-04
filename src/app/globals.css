@@ -2,26 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    @apply bg-white text-black font-normal;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  h1 {
+    @apply mb-2 text-3xl font-bold;
+  }
+
+  h2 {
+    @apply mb-1 text-xl font-semibold;
+  }
+
+  a {
+    @apply text-appBlue underline underline-offset-2 font-semibold hover:text-blue-800;
+  }
+
+  input,
+  select {
+    @apply text-black p-1 mb-1 border border-appBlue rounded outline-none;
+  }
+
+  input[type="text"] {
+    @apply placeholder:italic disabled:bg-slate-300;
+  }
+
+  input[type="checkbox"] {
+    @apply p-2 accent-appYellow mr-1 mb-0 mt-0.5;
+  }
+
+  select {
+    @apply pr-8;
+  }
+
+  label {
+    @apply text-sm text-black font-medium leading-4;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg hover:transition hover:duration-300 hover:opacity-80 disabled:bg-slate-400/45 hover:disabled:opacity-100;
+  }
+
+  .btn-primary {
+    @apply bg-appBlue text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-appGrey text-black;
+  }
+
+  .btn-warning {
+    @apply bg-appYellow text-black;
+  }
 }
